@@ -22,3 +22,10 @@ translate_prompt = PromptTemplate(
 translate_chain = LLMChain(llm=llm, prompt=translate_prompt)
 print("Urdu:", translate_chain.run("Knowledge is power."))
 
+#question generator
+question_prompt = PromptTemplate(
+    input_variable = ["topic"],
+    template="Generate 3 question about {topic}"
+)
+question_chain = LLMChain(llm=llm, prompt=question_prompt)
+print("Question\n",question_chain.run("LangChain"))
